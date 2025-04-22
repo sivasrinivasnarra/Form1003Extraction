@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  formsiq:
+    build: .
+    ports:
+      - "8000:8000"  # Flask API
+      - "8501:8501"  # Streamlit UI
+    environment:
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+    volumes:
+      - .:/app
+    restart: unless-stopped 
